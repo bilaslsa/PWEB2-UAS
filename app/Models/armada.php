@@ -9,8 +9,8 @@ class armada extends Model
     protected $table = 'armadas';
     protected $fillable = [
         'merk',
-        'nomor_polisi',
-        'tahun_beli',
+        'nopol',
+        'thn_beli',
         'deskripsi',
         'jenis_kendaraan_id',
         'kapasitas_kursi',
