@@ -8,6 +8,13 @@ use Filament\Forms\Form;
 use App\Models\Peminjaman;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\DatePicker;
+
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -26,7 +33,20 @@ class PeminjamanResource extends Resource
     {
         return $form
             ->schema([
-                //
+                TextInput::make('nama_peminjam')->label('nama'),
+                TextInput::make('ktp_peminjam')->label('nomor ktp'),
+                TextInput::make('keperluan_pinjam')->label('alasan'),
+                DatePicker::make('mulai'),
+                DatePicker::make('selesai'),
+                TextInput::make('biaya')->label('biaya'),
+                Select::make('armada_id')->searchable()->preload()->relationship('armada',  'merk'),
+                Textarea::make('komentar_peminjam'),
+                Select::make('status_pinjam')
+                ->options([
+                    'Pinjam' => 'Pinjam',
+                    'Tersedia' => 'Tersedia',
+                ]),
+
             ]);
     }
 
@@ -41,7 +61,11 @@ class PeminjamanResource extends Resource
                 TextColumn::make('selesai')->label('selesai')->dateTime('d M Y'),
                 TextColumn::make('armada.merk')->label('ulasan'),
                 TextColumn::make('komentar_peminjam')->label('ulasan'),
+
+                TextColumn::make('status_pinjam')->label('status'),
+
                 TextColumn::make('status_pinjam')->label('status')->badge()->color('success'),
+
             ])
             ->filters([
                 //
