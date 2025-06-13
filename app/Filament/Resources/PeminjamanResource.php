@@ -41,7 +41,7 @@ class PeminjamanResource extends Resource
                 TextColumn::make('selesai')->label('selesai')->dateTime('d M Y'),
                 TextColumn::make('armada.merk')->label('ulasan'),
                 TextColumn::make('komentar_peminjam')->label('ulasan'),
-                TextColumn::make('status_pinjam')->label('status'),
+                TextColumn::make('status_pinjam')->label('status')->badge()->color('success'),
             ])
             ->filters([
                 //
@@ -49,7 +49,7 @@ class PeminjamanResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
-                
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

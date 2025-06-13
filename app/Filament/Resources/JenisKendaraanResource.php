@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\JenisKendaraanResource\Pages;
 use App\Filament\Resources\JenisKendaraanResource\RelationManagers;
+use App\Models\jenis_kendaraan;
 use App\Models\JenisKendaraan;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -15,7 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class JenisKendaraanResource extends Resource
 {
-    protected static ?string $model = JenisKendaraan::class;
+    protected static ?string $model = jenis_kendaraan::class;
     protected static ?string $pluralModelLabel = 'Jenis Kendaraan';
     protected static ?string $navigationGroup = 'Informasi Kendaraan';
 
