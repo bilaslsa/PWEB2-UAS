@@ -8,11 +8,14 @@ use Filament\Forms\Form;
 use App\Models\Peminjaman;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
+
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\PeminjamanResource\Pages;
@@ -21,6 +24,8 @@ use App\Filament\Resources\PeminjamanResource\RelationManagers;
 class PeminjamanResource extends Resource
 {
     protected static ?string $model = Peminjaman::class;
+    protected static ?string $pluralModelLabel = 'Peminjaman';
+    protected static ?string $navigationGroup = 'Transaksi';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -56,7 +61,11 @@ class PeminjamanResource extends Resource
                 TextColumn::make('selesai')->label('selesai')->dateTime('d M Y'),
                 TextColumn::make('armada.merk')->label('ulasan'),
                 TextColumn::make('komentar_peminjam')->label('ulasan'),
+
                 TextColumn::make('status_pinjam')->label('status'),
+
+                TextColumn::make('status_pinjam')->label('status')->badge()->color('success'),
+
             ])
             ->filters([
                 //

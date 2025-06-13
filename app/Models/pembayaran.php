@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class pembayaran extends Model
 {
+
     protected $table = 'pembayaran';
+
 
     protected $fillable = [
         'tanggal',

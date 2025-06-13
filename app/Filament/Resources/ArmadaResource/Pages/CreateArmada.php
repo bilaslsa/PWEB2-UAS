@@ -9,4 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateArmada extends CreateRecord
 {
     protected static string $resource = ArmadaResource::class;
+    protected ?string $refdirectUrl = null;
+    protected function getRedirectUrl(): string
+    {
+        return $this->refdirectUrl ?? $this->getResource()::getUrl('index');
+    }
 }

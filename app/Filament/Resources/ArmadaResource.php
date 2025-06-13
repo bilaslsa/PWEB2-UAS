@@ -16,6 +16,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class ArmadaResource extends Resource
 {
     protected static ?string $model = Armada::class;
+    protected static ?string $pluralModelLabel = 'Armada';
+    protected static ?string $navigationGroup = 'Informasi Kendaraan';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 

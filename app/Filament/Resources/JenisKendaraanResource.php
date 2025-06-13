@@ -18,6 +18,10 @@ class JenisKendaraanResource extends Resource
 {
     protected static ?string $model = jenis_kendaraan::class;
 
+    protected static ?string $pluralModelLabel = 'Jenis Kendaraan';
+    protected static ?string $navigationGroup = 'Informasi Kendaraan';
+
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
