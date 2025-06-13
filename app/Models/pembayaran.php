@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class pembayaran extends Model
 {
 
-    protected $table = 'pembayaran';
+    protected $table = 'pembayarans';
 
 
     protected $fillable = [
