@@ -18,6 +18,7 @@ class PeminjamanResource extends Resource
 {
     protected static ?string $model = Peminjaman::class;
     protected static ?string $pluralModelLabel = 'Peminjaman';
+    protected static ?string $navigationGroup = 'Transaksi';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
