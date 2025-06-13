@@ -2,20 +2,22 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PembayaranResource\Pages;
-use App\Filament\Resources\PembayaranResource\RelationManagers;
-use App\Models\Pembayaran;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
+use App\Models\pembayaran;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\PembayaranResource\Pages;
+use App\Filament\Resources\PembayaranResource\RelationManagers;
 
 class PembayaranResource extends Resource
 {
-    protected static ?string $model = Pembayaran::class;
+    protected static ?string $model = pembayaran::class;
+    protected static ?string $pluralModelLabel = 'pembayaran';
+    protected static ?string $navigationGroup = 'Transaksi';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
