@@ -17,6 +17,7 @@ use App\Filament\Resources\PeminjamanResource\RelationManagers;
 class PeminjamanResource extends Resource
 {
     protected static ?string $model = Peminjaman::class;
+    protected static ?string $pluralModelLabel = 'Peminjaman';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
