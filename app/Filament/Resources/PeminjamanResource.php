@@ -2,16 +2,17 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PeminjamanResource\Pages;
-use App\Filament\Resources\PeminjamanResource\RelationManagers;
-use App\Models\Peminjaman;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
+use App\Models\Peminjaman;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\PeminjamanResource\Pages;
+use App\Filament\Resources\PeminjamanResource\RelationManagers;
 
 class PeminjamanResource extends Resource
 {
@@ -31,13 +32,22 @@ class PeminjamanResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('nama_peminjam')->label('nama'),
+                TextColumn::make('ktp_peminjam')->label('ktp'),
+                TextColumn::make('keperluan_pinjam')->label('alasan'),
+                TextColumn::make('mulai')->label('mulai')->dateTime('d M Y'),
+                TextColumn::make('selesai')->label('selesai')->dateTime('d M Y'),
+                TextColumn::make('armada.merk')->label('ulasan'),
+                TextColumn::make('komentar_peminjam')->label('ulasan'),
+                TextColumn::make('status_pinjam')->label('status'),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
+                
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

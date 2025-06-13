@@ -19,6 +19,8 @@ class armada extends Model
 
     public function jenisKendaraan()
     {
-        return $this->belongsTo(JenisKendaraan::class, 'jenis_kendaraan_id');
+        return $this->belongsTo(jenis_kendaraan::class, 'jenis_kendaraan_id');
     }
+
+    
 }
