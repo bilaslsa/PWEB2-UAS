@@ -28,15 +28,20 @@ class JenisKendaraanResource extends Resource
     {
         return $form
             ->schema([
-                //
-            ]);
+                Forms\Components\TextInput::make('nama')
+                ->required()
+                ->maxLength(20),
+        ]);
+
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('id')->sortable(),
+            Tables\Columns\TextColumn::make('nama'),
+
             ])
             ->filters([
                 //

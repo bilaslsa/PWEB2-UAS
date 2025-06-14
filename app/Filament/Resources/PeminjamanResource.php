@@ -58,6 +58,7 @@ class PeminjamanResource extends Resource
                 TextColumn::make('keperluan_pinjam')->label('alasan'),
                 TextColumn::make('mulai')->label('mulai')->dateTime('d M Y'),
                 TextColumn::make('selesai')->label('selesai')->dateTime('d M Y'),
+                TextColumn::make('biaya')->label('biaya'),
                 TextColumn::make('armada.merk')->label('ulasan'),
                 TextColumn::make('komentar_peminjam')->label('ulasan'),
 
