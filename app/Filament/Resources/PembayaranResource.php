@@ -1,58 +1,51 @@
 <?php
 
+// app/Filament/Resources/PembayaranResource.php
+
 namespace App\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Tables;
 use Filament\Forms\Form;
-use App\Models\pembayaran;
+use App\Models\Pembayaran;
+use App\Models\Peminjaman;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\DatePicker;
 use App\Filament\Resources\PembayaranResource\Pages;
-use App\Filament\Resources\PembayaranResource\RelationManagers;
 
 class PembayaranResource extends Resource
 {
-    protected static ?string $model = pembayaran::class;
-    protected static ?string $pluralModelLabel = 'pembayaran';
+    protected static ?string $model = Pembayaran::class;
+    protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
     protected static ?string $navigationGroup = 'Transaksi';
-
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
-        return $form
-            ->schema([
-                //
-            ]);
+        return $form->schema([
+            DatePicker::make('tanggal')->required(),
+            Forms\Components\TextInput::make('jumlah_bayar')->numeric()->required(),
+            Forms\Components\Select::make('peminjaman_id')->relationship('peminjaman', 'nama_peminjam')->required(),
+
+        ]);
     }
 
     public static function table(Table $table): Table
     {
-        return $table
-            ->columns([
-                //
-            ])
-            ->filters([
-                //
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
-            ]);
-    }
+        return $table->columns([
+            Tables\Columns\TextColumn::make('tanggal'),
+            Tables\Columns\TextColumn::make('jumlah_bayar'),
+            Tables\Columns\TextColumn::make('peminjaman.nama_peminjam')->label('Peminjam'),
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
+        ])
+        ->actions([
+            Tables\Actions\EditAction::make(),
+        ])
+        ->bulkActions([
+            Tables\Actions\DeleteBulkAction::make(),
+        ]);
     }
 
     public static function getPages(): array
