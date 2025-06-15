@@ -9,6 +9,11 @@ use Filament\Resources\Pages\EditRecord;
 class EditPeminjaman extends EditRecord
 {
     protected static string $resource = PeminjamanResource::class;
+    protected ?string $refdirectUrl = null;
+    protected function getRedirectUrl(): string
+    {
+        return $this->refdirectUrl ?? $this->getResource()::getUrl('index');
+    }
 
     protected function getHeaderActions(): array
     {
