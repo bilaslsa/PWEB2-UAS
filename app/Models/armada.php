@@ -14,7 +14,8 @@ class armada extends Model
         'deskripsi',
         'jenis_kendaraan_id',
         'kapasitas_kursi',
-        'rating'
+        'rating',
+        'foto'
     ];
 
     public function jenisKendaraan()
@@ -22,5 +23,5 @@ class armada extends Model
         return $this->belongsTo(jenis_kendaraan::class, 'jenis_kendaraan_id');
     }
 
-    
+
 }
