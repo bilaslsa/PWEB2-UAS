@@ -8,6 +8,7 @@ use App\Models\Armada;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
@@ -38,9 +39,9 @@ class ArmadaResource extends Resource
                     ->numeric(),
                 Forms\Components\Textarea::make('deskripsi')
                     ->maxLength(200),
-                Forms\Components\TextInput::make('jenis_kendaraan_id')
-                    ->required()
-                    ->numeric(),
+                
+                    Select::make('jenis_kendaraan_id')
+                    ->relationship('jenisKendaraan','nama'),
                 Forms\Components\TextInput::make('kapasitas_kursi')
                     ->required()
                     ->numeric(),
