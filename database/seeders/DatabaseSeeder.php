@@ -2,23 +2,22 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Jalankan database seeds.
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'HexaAuto',
-            'email' => 'HexaAuto@gmail.com',
-            'password' => bcrypt('HexaAuto123'),
+        // Urutan sangat penting karena ada relasi antar tabel (foreign keys)
+        $this->call([
+            UserSeeder::class, // User harus ada sebelum Peminjaman
+            JenisKendaraanSeeder::class, // JenisKendaraan harus ada sebelum Armada
+            ArmadaSeeder::class,         // Armada harus ada sebelum Peminjaman
+            PeminjamanSeeder::class,     // Peminjaman harus ada sebelum Pembayaran
+            PembayaranSeeder::class,
         ]);
     }
 }
