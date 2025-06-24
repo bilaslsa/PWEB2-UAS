@@ -34,6 +34,6 @@ class Armada extends Model
     {
         // Pastikan nama model JenisKendaraan (dengan J kapital)
         // dan foreign key 'jenis_kendaraan_id' sesuai di migrasi Anda.
-        return $this->belongsTo(JenisKendaraan::class, 'jenis_kendaraan_id');
+        return $this->belongsTo(jenis_kendaraan::class);
     }
 }
