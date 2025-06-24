@@ -2,6 +2,7 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\User;
 use App\Models\armada;
 use App\Models\peminjaman;
 use Filament\Widgets\StatsOverviewWidget\Stat;
@@ -13,10 +14,11 @@ class StatsOverview extends BaseWidget
     {
         $keuntungan = peminjaman::sum('biaya');
         $kendaraan = armada::count('*');
+        $user = User::count('*');
         return [
             Stat::make('Keuntungan', number_format($keuntungan, 0, ',', '.')),
             Stat::make('Jumlah unit', $kendaraan),
-            Stat::make('Average time on page', '3:12'),
+            Stat::make('Pengguna', $user),
         ];
     }
 }
