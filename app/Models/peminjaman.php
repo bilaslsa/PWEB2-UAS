@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
-use App\Models\armada;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Armada;
 use Illuminate\Database\Eloquent\Model;
 
-class peminjaman extends Model
+class Peminjaman extends Model
 {
+    use HasFactory;
     protected $table = 'peminjamans';
 
     protected $fillable = [
@@ -21,9 +23,20 @@ class peminjaman extends Model
         'status_pinjam'
     ];
 
+    /**
+     * Casting atribut ke tipe data tertentu.
+     * Kolom 'mulai' dan 'selesai' akan otomatis dikonversi menjadi objek DateTime.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'mulai' => 'datetime',
+        'selesai' => 'datetime',
+    ];
+
 
     public function armada()
     {
-        return $this->belongsTo(armada::class, 'armada_id');
+        return $this->belongsTo(Armada::class, 'armada_id');
     }
 }
