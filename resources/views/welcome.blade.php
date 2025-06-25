@@ -64,7 +64,7 @@
                     @else
                     <li>
                         <a
-                            href="{{ route('login') }}"
+                            href="{{ url('/admin/login') }}"
                             class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
                         >
                             Log in
@@ -73,7 +73,7 @@
                         @if (Route::has('register'))
                         <li>
                             <a
-                                href="{{ route('register') }}"
+                                href="{{ url('/admin/register') }}"
                                 class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
                                 Register
                             </a>
@@ -203,7 +203,7 @@ Dengan armada terawat, desain eksklusif, dan dukungan teknologi terkini, setiap 
             <div class="team-leader-box">
                 <div class="team-leader wow fadeInDown delay-03s">
                     <div class="team-leader-shadow"><a href="#"></a></div>
-                    <img src="{{ asset('assets/img/team-leader-pic1.jpg') }}" alt="">
+                    <img width="300" height="300"  src="{{ asset('assets/img/riza.jpg') }}" alt="">
                     <ul>
                         <li><a href="#" class="fa-twitter"></a></li>
                         <li><a href="#" class="fa-facebook"></a></li>
@@ -218,7 +218,7 @@ Dengan armada terawat, desain eksklusif, dan dukungan teknologi terkini, setiap 
             <div class="team-leader-box">
                 <div class="team-leader wow fadeInDown delay-03s">
                     <div class="team-leader-shadow"><a href="#"></a></div>
-                    <img src="{{ asset('assets/img/dodo.jpg') }}" alt="">
+                    <img width="300" height="300" src="{{ asset('assets/img/qohir.jpg') }}" alt="">
                     <ul>
                         <li><a href="#" class="fa-twitter"></a></li>
                         <li><a href="#" class="fa-facebook"></a></li>
@@ -233,7 +233,7 @@ Dengan armada terawat, desain eksklusif, dan dukungan teknologi terkini, setiap 
             <div class="team-leader-box">
                 <div class="team-leader  wow fadeInDown delay-06s">
                     <div class="team-leader-shadow"><a href="#"></a></div>
-                    <img src="{{ asset('assets/img/team-leader-pic2.jpg') }}" alt="">
+                    <img width="300" height="300"  src="{{ asset('assets/img/xavir.jpg') }}" alt="">
                     <ul>
                         <li><a href="#" class="fa-twitter"></a></li>
                         <li><a href="#" class="fa-facebook"></a></li>
@@ -248,7 +248,7 @@ Dengan armada terawat, desain eksklusif, dan dukungan teknologi terkini, setiap 
             <div class="team-leader-box">
                 <div class="team-leader wow fadeInDown delay-09s">
                     <div class="team-leader-shadow"><a href="#"></a></div>
-                    <img src="{{ asset('assets/img/team-leader-pic3.jpg') }}" alt="">
+                    <img width="300" height="300" src="{{ asset('assets/img/salsabila.jpg') }}" alt="">
                     <ul>
                         <li><a href="#" class="fa-twitter"></a></li>
                         <li><a href="#" class="fa-facebook"></a></li>
